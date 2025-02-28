@@ -6,7 +6,7 @@
     <title>MoneyFlow</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 <body onload ="checkuser()">
     <div class="navbar">
         <div class="logo">
-          <img src="/asset/logo.png" alt="Expense Tracker Logo" class="logo-img">
+          <img src="logo.png" alt="Expense Tracker Logo" class="logo-img">
           <h2 class="logo-text">MoneyFlow</h2>
         </div>
   
@@ -38,13 +38,14 @@
         <h5>Login to MoneyFlow</h5>
         <input type="text" id="login-username" class="input-field" placeholder="Email/mobile*"></br>
         <input type="password" id="login-password" class="input-field" placeholder="Password*"></br>
-        <a href="/public/main.html">
+        <a href="main.html">
             <button class="btn" onclick="login()">Login</button>
         </a>
         <p id="login-error-message" style="color: red; display: none;">Invalid credentials</p>
         <span class="link" onclick="showSignup()">New user? Sign up</span>
-        <a class="link" href="/public/password.html">Forgot Password</a>
+        <a class="link" href="password.html">Forgot Password</a>
     </div>  
+    
     <div class="container2" id="signup-container" style="display: none; background-image: url(asset/bg2.jpg);">
         <h5>Sign Up for MoneyFlow</h5>
         <p style="color: #333;">Fill the required Details</p>
@@ -54,7 +55,7 @@
             <input type="text" id="signup-lastname" class="input-field" placeholder="Last Name*" required> </br>    
             <input type="password" id="signup-password" class="input-field" placeholder="Set new Password*" required>
             <input type="password" id="signup-password" class="input-field" placeholder="Confirm Password*" required></br>
-        <a href="/public/main.html">
+        <a href="main.html">
             <button class="btn" onclick="signup()">Sign Up</button>
         </a>
         <p id="signup-error-message" style="color: red; display: none;">Signup failed</p>
@@ -65,5 +66,5 @@
     </div> -->
     
 </body>
-<script src="/public/script.js"></script>
+<script src="script.js"></script>
 </html>
