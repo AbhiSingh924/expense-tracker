@@ -1,0 +1,343 @@
+* {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: rgba(232, 237, 254, 0.19);
+  top: 50%;
+  left: 50%;
+  
+}
+.navbar{
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar:hover{
+background: rgba(67, 114, 233, 0.12);
+cursor: pointer;
+}
+.navbar .logo{
+  display: flex;
+  align-items: center;
+}
+.navbar .logo img{
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.navbar .logo h2{
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.navbar .nav-links{
+  list-style: none;
+  display: flex;
+  gap:50px;
+}
+.navbar .nav-links a:hover{
+  color: rgba(49, 164, 246, 0.95);
+  cursor: pointer;
+  transform: translateY(-3px);
+  font-size:x-large;
+}
+.navbar .nav-links li{
+  display: inline;
+}
+
+.navbar .nav-links a{
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.dark-mode-btn{
+  padding: 5px 10px;
+  border: none;
+  width: auto;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  
+}
+.flag-img{
+  display: flex;
+  margin-left: 1.5rem;
+}
+.search-bar{
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+}
+.nav-right{
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 95%;
+  height: auto;
+  /* margin-top: 4rem; */
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
+  backdrop-filter: blur(10px);
+}
+
+h2 {
+  color:rgb(5, 173, 203);
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  text-decoration: underline rgb(137, 223, 238);
+  text-shadow: 2px 2px 4px rgba(250, 146, 146, 0.1);
+}
+h3 {
+  margin-top: 1em;
+  color: rgb(5, 173, 203);
+  font-size: 1.75em;   
+  font-style: italic;
+  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
+  background: rgba(95, 133, 230, 0.12);
+  padding: .25rem;
+  border-radius: 5px;
+}
+h3:hover{
+  color:rgb(221, 143, 26);
+  background: rgba(245, 146, 238, 0.12);
+}
+
+.summary, .history {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.history{
+  margin-top: 1.5rem;
+}
+
+.balance {
+  background: rgba(95, 133, 230, 0.12);
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
+}
+
+.income, .expense {
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  transition: transform 0.3s ease;
+  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
+  background: rgba(95, 133, 230, 0.12);
+}
+
+.income:hover {
+  transform: translateY(-3px);
+  font-size:large;
+  background: rgba(134, 248, 193, 0.74);
+}
+.expense:hover {
+  transform: translateY(-3px);
+  background: rgba(235, 124, 150, 0.74);
+  font-size:large;
+}
+
+.income {
+  background: linear-gradient(145deg, rgba(95, 133, 230, 0.12), rgba(95, 133, 230, 0.12));
+}
+
+.expense {
+  background: linear-gradient(145deg, rgba(95, 133, 230, 0.12), rgba(95, 133, 230, 0.12)));
+}
+
+#transaction-form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: rgba(95, 133, 230, 0.12);
+  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
+}
+
+input, select, button {
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+button {
+  width:60%;
+  margin-left:20%;
+  background: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background:rgb(9, 69, 108);
+  transform: translateY(-2px);
+}
+
+#transaction-list {
+  list-style: none;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.chart-container, .right2{
+  background: rgba(95, 133, 230, 0.12);
+  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
+}
+.chart-container:hover{
+  background: rgba(245, 146, 238, 0.12);;;
+  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
+}
+h2 {
+  color:rgb(5, 173, 203);
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(250, 146, 146, 0.1);
+}
+h5 {
+  color:rgb(5, 173, 203);
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(250, 146, 146, 0.1);
+}
+
+.container1, .container2, .authentication{
+  width: 50%;
+  height: auto;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81); 
+  text-align: center;
+  margin-left:25%;
+}
+
+.input-field, .btn{
+  width: 60%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  justify-items: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.btn {
+  width: 35%;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  
+}
+.btn:hover {
+  background-color: rgb(9, 69, 108);
+}
+.link {
+  margin-top: 10px;
+  display: block;
+  color: #007bff;
+  cursor: pointer;
+}
+.bottom{
+  bottom: 0;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  /* position: relative; */
+  margin-top: 18rem;
+  padding-top: 1rem;
+  
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  #transaction-form {
+    grid-template-columns: 1fr;
+  }
+  .navbar {
+    height: auto;
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  
+  .logo h2 {
+    font-size: 1rem;
+    /* margin: 1px; */
+  }
+  
+  .navbar .nav-links {
+    display: flex;
+    gap: 2px;
+    font-weight:300;
+  }
+  
+  .navbar .nav-links a:hover{
+    color: rgba(49, 164, 246, 0.95);
+    cursor: pointer;
+    transform: translateY(-3px);
+    font-size:large;
+  }
+  .nav-links li a{
+    display:flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size:.5rem;
+  }
+  .container1, .container2{
+    width:90%;
+    float:none;
+    text-align: center;
+    margin-left: 5%;
+    margin-top:2rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  input, select, button {
+    font-size: 0.9rem;
+  }
+  
+  #transaction-list li {
+    
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

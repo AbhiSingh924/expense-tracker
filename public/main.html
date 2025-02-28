@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MoneyFlow</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+<!-- <video autoplay muted loop id="bg-video">
+    <source src="bg_animation.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>  -->
+  
+  <div class="navbar">
+      <div class="logo">
+        <img src="../asset/logo.png" alt="Expense Tracker Logo" class="logo-img">
+        <h2 class="logo-text">MoneyFlow</h2>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Transactions</a></li>
+        <li><a href="#">Budget</a></li>
+        <li><a href="#">Export</a></li>
+        <li><a href="#">Profile</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <input type="text" placeholder="Search Transactions..." class="search-bar">
+        <img id="flag" src="" alt="Country Flag" class="flag-img">
+        <button id="theme-toggle" class="dark-mode-btn">🌙</button> 
+      </div>
+  </div>
+
+<div class="container">
+    <div class="summary">
+        <div class="left">
+            <div class="balance">
+                <h3>Balance: ₹<span id="balance">0.00</span></h3>
+            </div>
+            <div class="income" style="color: rgb(0,128,0);">
+                <h4>  Income: <span id="income">0.00</span></h4>
+            </div>
+            <div class="expense" style="color: rgb(255,0,0);">
+                <h4>Expense: <span id="expense">0.00</span></h4>
+            </div>
+        </div>
+        <div class="right">
+            <div class="chart-container">
+                <canvas id="expenseChart"></canvas>
+            </div> 
+        </div>       
+    </div>
+    <div id="budget-alert"></div>
+    <div class="history">
+        <div class="left2">
+            <h3>Add Transaction</h3>
+            <form id="transaction-form">
+                <input type="text" id="description" placeholder="Enter description" required>
+                <input type="number" id="amount" placeholder="Enter amount" required>
+                <input type="date" id="date" placeholder="Enter Date" required>
+                <select id="type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>    
+                </select>
+                <button type="submit">Add Transaction</button>
+            </form>
+        </div>
+        <div class="right2">
+            <h3 id="Transaction"> Transaction History</h3>
+            <select id="sort">
+                <option value="date">Sort by Date</option>
+                <option value="amount">Sort by Amount</option>
+                <option value="type">Sort by Type</option>
+            </select>
+            <ul id="transaction-list"></ul>    
+        </div>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
