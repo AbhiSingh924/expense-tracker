@@ -38,6 +38,13 @@ cursor: pointer;
   display: flex;
   gap:50px;
 }
+
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .navbar .nav-links a:hover{
   color: rgba(49, 164, 246, 0.95);
   cursor: pointer;
@@ -318,7 +325,8 @@ h5 {
     text-align: center;
     font-size:.5rem;
   }
-  .container1, .container2{
+  
+  .container1, .container2, .authentication{
     width:90%;
     float:none;
     text-align: center;

@@ -18,7 +18,7 @@
           <img src="logo.png" alt="Expense Tracker Logo" class="logo-img">
           <h2 class="logo-text">MoneyFlow</h2>
         </div>
-  
+        
         <ul class="nav-links">
           <li><a href="#">Home</a></li>
           <li><a href="#">Transactions</a></li>
@@ -43,7 +43,8 @@
         </a>
         <p id="login-error-message" style="color: red; display: none;">Invalid credentials</p>
         <span class="link" onclick="showSignup()">New user? Sign up</span>
-        <a class="link" href="password.html">Forgot Password</a>
+        <!-- <a class="link" href="password.html">Forgot Password</a> -->
+        <span class="link" onclick="showPassword()">Forgot Password?</span>
     </div>  
     
     <div class="container2" id="signup-container" style="display: none; background-image: url(asset/bg2.jpg);">
@@ -61,9 +62,26 @@
         <p id="signup-error-message" style="color: red; display: none;">Signup failed</p>
         <span class="link" onclick="showLogin()">Already have an account? Login</span>
     </div>  
-    <!-- <div>
-        <img class="side_img" src="asset/image copy.png" alt="company_logo" style="width: 50%; height:89vh; float: right;">
-    </div> -->
+
+    <div class="authentication" id="password-container" style="display:none;">
+        <div class="login">
+            <img src="passlogo.png" alt="profile" width="100px">
+            <h5>Restore Password</h5>
+            <span class="msg">Enter your register Email/Mobile No.</span><br/>
+            <input type="text" id="password" size="30" maxlength="60" placeholder="email/mobile no. " style="margin-top: 1em;"><br/>
+            <button class="btn" onclick="showOTP()" style="margin-top: 2rem; ">Send OTP</button>    
+        </div>
+    </div>
+
+    <div class="authentication" id="otp-container" style="display:none;">
+        <div class="login">
+            <img src="passlogo.png" alt="profile" width="100px">
+            <h5>Restore your Password</h5>
+            <span class="msg">OTP verification</span><br/>
+            <input type="text" size="30" maxlength="10" placeholder="Enter OTP " style="margin-top: 1em;"><br/>
+            <button class="btn" onclick="showLogin()" style="margin-top: 2rem;">verify</button>
+        </div>
+    </div>
     
 </body>
 <script src="script.js"></script>

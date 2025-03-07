@@ -217,7 +217,18 @@ function showSignup() {
 }
 function showLogin() {
     document.getElementById("signup-container").style.display = "none";
+    document.getElementById("password-container").style.display = "none";
+    document.getElementById("otp-container").style.display = "none";
     document.getElementById("login-container").style.display = "block";
+}
+
+function showPassword() {
+    document.getElementById('login-container').style.display = 'none';
+    document.getElementById('password-container').style.display = 'block';
+}
+function showOTP() {
+    document.getElementById('password-container').style.display = 'none';
+    document.getElementById('otp-container').style.display = 'block';
 }
 
 function login() {
@@ -247,3 +258,8 @@ function signup() {
         document.getElementById("signup-error-message").style.display = "block";
     }
 }
+
+function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("show");
+}
+
