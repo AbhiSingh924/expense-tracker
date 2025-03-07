@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', system-ui, sans-serif;
-  background: rgba(232, 237, 254, 0.19);
   top: 50%;
   left: 50%;
   
@@ -15,8 +14,12 @@
   justify-content: space-between;
   align-items: center;
 }
+.dark{
+  background-color: rgb(17, 17, 18);
+  color: white;
+  transition:33ms;
+}
 .navbar:hover{
-background: rgba(67, 114, 233, 0.12);
 cursor: pointer;
 }
 .navbar .logo{
@@ -70,9 +73,9 @@ cursor: pointer;
   cursor: pointer;
   transition: 0.3s;
   margin-left: 2rem;
-  margin-right: 2rem;
-  
+  margin-right: 2rem; 
 }
+
 .flag-img{
   display: flex;
   margin-left: 1.5rem;
@@ -91,7 +94,6 @@ cursor: pointer;
 .container {
   width: 95%;
   height: auto;
-  /* margin-top: 4rem; */
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
@@ -272,11 +274,9 @@ h5 {
   cursor: pointer;
 }
 .bottom{
-  bottom: 0;
   font-size: 12px;
   color: #666;
   text-align: center;
-  /* position: relative; */
   margin-top: 18rem;
   padding-top: 1rem;
   
@@ -286,10 +286,6 @@ h5 {
   .container {
     margin: 1rem;
     padding: 1rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
   }
   
   #transaction-form {
@@ -313,12 +309,6 @@ h5 {
     font-weight:300;
   }
   
-  .navbar .nav-links a:hover{
-    color: rgba(49, 164, 246, 0.95);
-    cursor: pointer;
-    transform: translateY(-3px);
-    font-size:large;
-  }
   .nav-links li a{
     display:flex;
     justify-content: space-between;

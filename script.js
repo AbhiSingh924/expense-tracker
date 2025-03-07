@@ -39,7 +39,6 @@ function renderTransactions() {
                         </span> 
                         <span style="color:rgba(46, 51, 51, 0.81);">${t.date}</span>
                         <span onclick="deleteTransaction(${index})" style="cursor:pointer; color:grey;">❌</span>`;
-        
         transactionList.appendChild(li);
     });
 }
@@ -54,7 +53,6 @@ function saveAndRender() {
     updateSummary();
     renderTransactions();
     updateChart();
-    // checkBudgetWarning();
 }
 
 transactionForm.addEventListener("submit", function (e) {
@@ -126,7 +124,6 @@ function updateChart() {
         budgetAlertEl.style.color = "red";
         budgetAlertEl.style.fontWeight = "bold";
         budgetAlertEl.style.fontSize = "2rem";
-        // budgetAlertEl.style.backgroundColor = "hsla(205, 73.50%, 77.80%, 0.21)"; 
     
     }
     else if (income > 0 && expense > income * 0.7) {
@@ -134,14 +131,12 @@ function updateChart() {
         budgetAlertEl.style.color = "red";
         budgetAlertEl.style.fontWeight = "bold";
         budgetAlertEl.style.fontSize = "2rem";
-        // budgetAlertEl.style.backgroundColor = "hsla(205, 73.50%, 77.80%, 0.21)";
     }
     else {
         budgetAlertEl.innerHTML = "✅ <b>Budget is under control.</b>";
         budgetAlertEl.style.color = "green";
         budgetAlertEl.style.fontWeight = "bold";
         budgetAlertEl.style.fontSize = "1.5rem";
-        // budgetAlertEl.style.backgroundColor = "hsla(120, 100%, 25.10%, 0.21)";
     }
 
     
@@ -181,12 +176,10 @@ async function getUserLocation() {
         const countryNameEl = document.getElementById('country-name');
         const flagEl = document.getElementById('flag');
 
-        // countryNameEl.textContent = data.country_name;
 
         // Ensure country_code is valid before setting the flag
         if (data.country_code) {
             flagEl.src = `https://flagcdn.com/40x30/${data.country_code.toLowerCase()}.png`;
-            // flagEl.alt = `Flag of ${data.country_name}`;
             flagEl.style.display = "inline"; // Ensure flag is visible
         } else {
             flagEl.style.display = "none";
@@ -194,7 +187,6 @@ async function getUserLocation() {
         }
     } catch (error) {
         console.error("Error fetching location:", error);
-        // document.getElementById('country-name').textContent = 'Unknown';
         document.getElementById('flag').style.display = "none";
     }
 }
