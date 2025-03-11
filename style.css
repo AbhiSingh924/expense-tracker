@@ -4,8 +4,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', system-ui, sans-serif;
-  top: 50%;
-  left: 50%;
+  /* top: 50%;
+  left: 50%; */
   
 }
 .navbar{
@@ -13,29 +13,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #31a4f6;
 }
 .dark{
-  background-color: rgb(17, 17, 18);
+  background-color: rgb(30, 30, 34);
   color: white;
   transition:33ms;
 }
-.navbar:hover{
-cursor: pointer;
-}
+
 .navbar .logo{
   display: flex;
   align-items: center;
+
 }
 .navbar .logo img{
   width: 40px;
   height: 40px;
   margin-right: 10px;
+  border-radius: 50%;
 }
-.navbar .logo h2{
-  margin-top: 1.5rem;
-  font-size: 2rem;
-  font-weight: 600;
-}
+
 .navbar .nav-links{
   list-style: none;
   display: flex;
@@ -49,10 +46,13 @@ cursor: pointer;
 }
 
 .navbar .nav-links a:hover{
-  color: rgba(49, 164, 246, 0.95);
+  color: #31a4f6;
   cursor: pointer;
   transform: translateY(-3px);
   font-size:x-large;
+}
+.navbar .nav-links .dark a {
+  color: rgba(196, 225, 247, 0.95);
 }
 .navbar .nav-links li{
   display: inline;
@@ -66,12 +66,9 @@ cursor: pointer;
 }
 .dark-mode-btn{
   padding: 5px 10px;
-  border: none;
-  width: auto;
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
   margin-left: 2rem;
   margin-right: 2rem; 
 }
@@ -95,26 +92,14 @@ cursor: pointer;
   width: 95%;
   height: auto;
   padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
-  backdrop-filter: blur(10px);
 }
 
-h2 {
-  color:rgb(5, 173, 203);
-  font-style: italic;
-  margin-bottom: 2rem;
-  font-size: 3rem;
-  text-decoration: underline rgb(137, 223, 238);
-  text-shadow: 2px 2px 4px rgba(250, 146, 146, 0.1);
-}
+
 h3 {
   margin-top: 1em;
   color: rgb(5, 173, 203);
   font-size: 1.75em;   
   font-style: italic;
-  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
-  background: rgba(95, 133, 230, 0.12);
   padding: .25rem;
   border-radius: 5px;
 }
@@ -137,7 +122,6 @@ h3:hover{
   background: rgba(95, 133, 230, 0.12);
   padding: 1.5rem;
   border-radius: 5px;
-  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
 }
 
 .income, .expense {
@@ -145,7 +129,6 @@ h3:hover{
   border-radius: 8px;
   margin: 1rem 0;
   transition: transform 0.3s ease;
-  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
   background: rgba(95, 133, 230, 0.12);
 }
 
@@ -174,7 +157,6 @@ h3:hover{
   padding: 1.5rem;
   border-radius: 10px;
   background: rgba(95, 133, 230, 0.12);
-  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
 }
 
 input, select, button {
@@ -217,19 +199,12 @@ button:hover {
 }
 .chart-container, .right2{
   background: rgba(95, 133, 230, 0.12);
-  box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
 }
 .chart-container:hover{
   background: rgba(245, 146, 238, 0.12);;;
   box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81);
 }
-h2 {
-  color:rgb(5, 173, 203);
-  font-style: italic;
-  margin-bottom: 2rem;
-  font-size: 3rem;
-  text-shadow: 2px 2px 4px rgba(250, 146, 146, 0.1);
-}
+
 h5 {
   color:rgb(5, 173, 203);
   font-style: italic;
@@ -273,14 +248,6 @@ h5 {
   color: #007bff;
   cursor: pointer;
 }
-.bottom{
-  font-size: 12px;
-  color: #666;
-  text-align: center;
-  margin-top: 18rem;
-  padding-top: 1rem;
-  
-}
 
 @media (max-width: 768px) {
   .container {
@@ -294,14 +261,9 @@ h5 {
   .navbar {
     height: auto;
     flex-direction: column;
-    margin-left: 0;
-    margin-top: 0;
+
   }
   
-  .logo h2 {
-    font-size: 1rem;
-    /* margin: 1px; */
-  }
   
   .navbar .nav-links {
     display: flex;
@@ -318,7 +280,6 @@ h5 {
   
   .container1, .container2, .authentication{
     width:90%;
-    float:none;
     text-align: center;
     margin-left: 5%;
     margin-top:2rem;

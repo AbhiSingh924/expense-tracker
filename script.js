@@ -213,6 +213,13 @@ function showLogin() {
     document.getElementById("otp-container").style.display = "none";
     document.getElementById("login-container").style.display = "block";
 }
+function showMain() {
+    document.getElementById("signup-container").style.display = "none";
+    document.getElementById("password-container").style.display = "none";
+    document.getElementById("otp-container").style.display = "none";
+    document.getElementById("login-container").style.display = "none";
+    document.getElementById("main-container").style.display = "block";
+}
 
 function showPassword() {
     document.getElementById('login-container').style.display = 'none';
