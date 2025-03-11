@@ -24,7 +24,7 @@
 .navbar .logo{
   display: flex;
   align-items: center;
-
+  
 }
 .navbar .logo img{
   width: 40px;
@@ -37,6 +37,7 @@
   list-style: none;
   display: flex;
   gap:50px;
+  /* color: #31a4f6; */
 }
 
 .menu-icon {
@@ -51,11 +52,12 @@
   transform: translateY(-3px);
   font-size:x-large;
 }
-.navbar .nav-links .dark a {
+.dark .navbar .nav-links a {
   color: rgba(196, 225, 247, 0.95);
 }
 .navbar .nav-links li{
   display: inline;
+  color: #31a4f6;
 }
 
 .navbar .nav-links a{
