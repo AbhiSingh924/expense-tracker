@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main/style.css">
+    <title>MoneyFlow</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar" style="cursor: pointer;">
+        <div class="logo">
+            <img src="image.png" alt="Expense Tracker Logo" class="logo-img">
+            <h4 class="logo-text">MoneyFlow</h4>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="main/main.html">Home</a></li>    
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Budget</a></li>
+            <li><a href="#">Export</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+        
+        <div class="nav-right">
+            <input type="text" placeholder="Search Transactions..." class="search-bar">
+            <img id="flag" src="" alt="Country Flag" class="flag-img">
+            <button id="theme-toggle" class="dark-mode-btn">🌙</button> 
+        </div>
+    </div>
+
+    <div class="container1">
+        <h3>Set Your Budget</h3>
+        <input type="text" id="item_name" placeholder="Item Name" style="margin-top: 1em;" required><br>
+        <input type="number" id="amount" placeholder="Amount" style="margin-top: 1em;" required><br>
+        <button onclick="setBudget()" style="margin-top: 2rem;">Submit</button>
+        <div id="message" class="message"></div>
+        <div class="chart-container">
+            <canvas id="expenseChart"></canvas>
+        </div> 
+    </div>    
+    <script>
+        let budgets = JSON.parse(localStorage.getItem("budgets")) || {}; 
+        let expenses = JSON.parse(localStorage.getItem("expenses")) || {};
+
+        function setBudget() {
+            const itemName = document.getElementById("item_name").value.trim();
+            const amount = parseFloat(document.getElementById("amount").value);
+
+            if (!itemName || isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid item name and budget amount.");
+                return;
+            }
+
+            budgets[itemName] = amount;
+            expenses[itemName] = expenses[itemName] || 0;
+            alert(`Budget for ${itemName} set to ₹${amount}`);
+            
+            updateChart();
+            document.getElementById("item_name").value = "";
+            document.getElementById("amount").value = "";
+            saveData();
+        }
+
+        function updateChart() {
+            let chartLabels = [];
+            let budgetData = [];
+            let expenseData = [];
+            let chartBackgroundColor = [];
+            
+            for (let item in budgets) {
+                chartLabels.push(item);
+                budgetData.push(budgets[item]);
+                expenseData.push(expenses[item]);
+                chartBackgroundColor.push(expenses[item] > budgets[item] ? 'red' : 'green');
+            }
+
+            var ctx = document.getElementById("expenseChart").getContext("2d");
+            if (window.expenseChart) {
+                window.expenseChart.data.labels = chartLabels;
+                window.expenseChart.data.datasets[0].data = budgetData;
+                window.expenseChart.data.datasets[1].data = expenseData;
+                window.expenseChart.update();
+            } else {
+                window.expenseChart = new Chart(ctx, {
+                    type: "line",
+                    data: {
+                        labels: chartLabels,
+                        datasets: [
+                            {
+                                label: "Budget",
+                                data: budgetData,
+                                borderColor: "blue",
+                                fill: false
+                            },
+                            {
+                                label: "Expense",
+                                data: expenseData,
+                                borderColor: "red",
+                                fill: false
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: true }
+                        },
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            }
+
+            checkBudgetExceedance();
+        }
+
+        function checkBudgetExceedance() {
+            let message = '';
+            for (let item in budgets) {
+                if (expenses[item] > budgets[item]) {
+                    message += `⚠️ ${item} budget exceeded! Expenses: ₹${expenses[item]} > Budget: ₹${budgets[item]}<br>`;
+                }
+            }
+
+            if (message) {
+                document.getElementById("message").innerHTML = message;
+                document.getElementById("message").style.color = "red";
+            } else {
+                document.getElementById("message").innerHTML = "✅ All budgets are under control.";
+                document.getElementById("message").style.color = "green";
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem("budgets", JSON.stringify(budgets));
+            localStorage.setItem("expenses", JSON.stringify(expenses));
+        }
+
+        window.onload = function() {
+            updateChart();
+            getUserLocation();
+        }
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // Fetch User Location and Display Flag
+        async function getUserLocation() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                if (!response.ok) throw new Error("Failed to fetch location");
+                
+                const data = await response.json();
+                const flagEl = document.getElementById('flag');
+
+                if (data.country_code) {
+                    flagEl.src = `https://flagcdn.com/40x30/${data.country_code.toLowerCase()}.png`;
+                    flagEl.style.display = "inline";
+                } else {
+                    flagEl.style.display = "none";
+                    console.error("Country code missing from API response.");
+                }
+            } catch (error) {
+                console.error("Error fetching location:", error);
+                document.getElementById('flag').style.display = "none";
+            }
+        }
+        getUserLocation();
+    </script>
+</body>
+</html>

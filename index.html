@@ -3,130 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <title>MoneyFlow</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+    }
+    .navbar{
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #31a4f6;
+    }
+    .dark{
+      background-color: rgb(30, 30, 34);
+      color: white;
+      transition:33ms;
+    }
+    .navbar .logo{
+      display: flex;
+      align-items: center; 
+    }
+    .navbar .logo img{
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    input, button {
+      padding: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      background:rgb(66, 121, 157);
+      transform: translateY(-2px);
+    }
+    
+    .container1{
+      width: 50%;
+      height: auto;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81); 
+      text-align: center;
+      margin-left:25%;
+    }
+    h5 {
+      color:rgb(5, 173, 203);
+      font-style: italic;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+    
+    .input-field{
+      width: 60%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      justify-items: center;
+      align-items: center;
+      border-radius: 5px;
+    }
+    
+    .link {
+      margin-top: 10px;
+      display: block;
+      color: #007bff;
+      cursor: pointer;
+    }
+    .dark-mode-btn{
+      padding: 5px 10px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-left: 2rem;
+      margin-right: 2rem; 
+    }
+    
+    @media (max-width: 768px) {
+      .container1{
+        width: 90%;
+        height: auto;
+        margin-left: 5%;     
+    }
+      .navbar {
+        height: auto;
+        /* flex-direction: column; */
+        
+      }
+    }
+    </style>
 </head>
 
-
 <body onload ="checkuser()">
-    <div class="navbar" style="cursor: pointer;">
-        <div class="logo">
-            <img src="image.png" alt="Expense Tracker Logo" class="logo-img">
-            <h4 class="logo-text" >MoneyFlow</h4>
-        </div>
-        
-        <ul class="nav-links" >
-            <li><a href="#summary">Home</a></li>    
-            <li><a href="#Transaction">Transactions</a></li>
-            <li><a href="#expenseChart">Budget</a></li>
-            <li><a href="#">Export</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-        
-        <div class="nav-right">
-            <input type="text" placeholder="Search Transactions..." class="search-bar">
-            <img id="flag" src="" alt="Country Flag" class="flag-img">
-            <button id="theme-toggle" class="dark-mode-btn">🌙</button> 
-        </div>
+  <div class="navbar" style="cursor: pointer;">
+    <div class="logo">
+      <img src="image.png" alt="Expense Tracker Logo" class="logo-img">
+      <h4 class="logo-text" >MoneyFlow</h4>
     </div>
-    
-    
-    <div class="container1 " id="login-container">
-        <h5>Login to MoneyFlow</h5>
-        <input type="text" id="login-username" class="input-field" placeholder="Email/mobile*"></br>
-        <input type="password" id="login-password" class="input-field" placeholder="Password*"></br>
-        <button class="btn" onclick="showMain()">Login</button>
-        <p id="login-error-message" style="color: red; display: none;">Invalid credentials</p>
-        <span class="link" onclick="showSignup()">New user? Sign up</span>
-        <span class="link" onclick="showPassword()">Forgot Password?</span>
-    </div>  
-    
-    <div class="container2" id="signup-container" style="display: none;">
-        <h5>Sign Up for MoneyFlow</h5>
-        <p style="color: #333;">Fill the required Details</p>
-        <input type="text" id="signup-email" class="input-field" placeholder="Enter email *" required>
-        <input type="text" id="signup-mobile" class="input-field" placeholder="Mobile number*" required></br>
-        <input type="text" id="signup-firstname" class="input-field" placeholder="First Name*" required>
-        <input type="text" id="signup-lastname" class="input-field" placeholder="Last Name*" required> </br>    
-        <input type="password" id="signup-password" class="input-field" placeholder="Set new Password*" required>
-        <input type="password" id="signup-password" class="input-field" placeholder="Confirm Password*" required></br>
-        <button class="btn" onclick="showMain()">Sign Up</button>
-        <p id="signup-error-message" style="color: red; display: none;">Signup failed</p>
-        <span class="link" onclick="showLogin()">Already have an account? Login</span>
-    </div>  
-    
-    <div class="authentication" id="password-container" style="display:none;">
-            <img src="passlogo.png" alt="profile" width="100px">
-            <h5>Restore Password</h5>
-            <span class="msg">Enter your register Email/Mobile No.</span><br/>
-            <input type="text" id="password" size="30" maxlength="60" placeholder="email/mobile no. " style="margin-top: 1em;"><br/>
-            <button class="btn" onclick="showOTP()" style="margin-top: 2rem; ">Send OTP</button>    
+    <div class="nav-right">
+      <button id="theme-toggle" class="dark-mode-btn">🌙</button> 
     </div>
+  </div>
+  <div class="container1 " id="login-container">
+    <h5>Login to MoneyFlow</h5>
+    <input type="text" id="login-username" class="input-field" placeholder="Email/mobile*"></br>
+    <input type="password" id="login-password" class="input-field" placeholder="Password*"></br>
+    <button><a href="/main/main.html" style="text-decoration: none;">Login</a></button>
+    <p id="login-error-message" style="color: red; display: none;">Invalid credentials</p>
+    <span class="link" onclick="showSignup()">New user? Sign up</span>
+    <span class="link" onclick="showPassword()">Forgot Password?</span>
+  </div>  
+  <div class="container1" id="signup-container" style="display: none;">
+    <h5>Sign Up for MoneyFlow</h5>
+    <p style="color: #333;">Fill the required Details</p>
+    <input type="text" id="signup-email" class="input-field" placeholder="Enter email *" required>
+    <input type="text" id="signup-mobile" class="input-field" placeholder="Mobile number*" required></br>
+    <input type="text" id="signup-firstname" class="input-field" placeholder="First Name*" required>
+    <input type="text" id="signup-lastname" class="input-field" placeholder="Last Name*" required> </br>    
+    <input type="password" id="signup-password" class="input-field" placeholder="Set new Password*" required>
+    <input type="password" id="signup-password" class="input-field" placeholder="Confirm Password*" required></br>
+    <button><a href="/main/main.html" style="text-decoration: none;">Sign Up</a></button>
+    <p id="signup-error-message" style="color: red; display: none;">Signup failed</p>
+    <span class="link" onclick="showLogin()">Already have an account? Login</span>
+  </div>  
+  <div class="container1" id="password-container" style="display:none;">
+    <img src="passlogo.png" alt="profile" width="100px">
+    <h5>Restore Password</h5>
+    <span class="msg">Enter your register Email/Mobile No.</span><br/>
+    <input type="text" id="password" size="30" maxlength="60" placeholder="email/mobile no. " style="margin-top: 1em;"><br/>
+    <button onclick="showOTP()" style="margin-top: 2rem; ">Send OTP</button>    
+  </div>    
+  <div class="container1" id="otp-container" style="display:none;">
     
-    <div class="authentication" id="otp-container" style="display:none;">
-       
-            <img src="passlogo.png" alt="profile" width="100px">
-            <h5>Restore your Password</h5>
-            <span class="msg">OTP verification</span><br/>
-            <input type="text" size="30" maxlength="10" placeholder="Enter OTP " style="margin-top: 1em;"><br/>
-            <button class="btn" onclick="showLogin()" style="margin-top: 2rem;">verify</button>
-        
-    </div>  
+    <img src="passlogo.png" alt="profile" width="100px">
+    <h5>Restore your Password</h5>
+    <span class="msg">OTP verification</span><br/>
+    <input type="text" size="30" maxlength="10" placeholder="Enter OTP " style="margin-top: 1em;"><br/>
+    <button onclick="showLogin()" style="margin-top: 2rem;">verify</button>    
+  </div>      
+  <script>
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
     
+    function checkUser() {
+      let storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        showLogin();
+      } else {
+        showSignup();
+      }
+    }
     
+    function showSignup() {
+      document.getElementById("login-container").style.display = "none";
+      document.getElementById("signup-container").style.display = "block";
+    }
+    function showLogin() {
+      document.getElementById("signup-container").style.display = "none";
+      document.getElementById("password-container").style.display = "none";
+      document.getElementById("otp-container").style.display = "none";
+      document.getElementById("login-container").style.display = "block";
+    }
     
-    <div class="container" id="main-container" style="display: none;">
-        <div class="summary" id="summary">
-            <div class="left">
-                <div class="balance">
-                    <h3>Balance: ₹<span id="balance">0.00</span></h3>
-                </div>
-                <div class="income" style="color: rgb(0,128,0);">
-                    <h4>  Income: <span id="income">0.00</span></h4>
-                </div>
-                <div class="expense" style="color: rgb(255,0,0);">
-                    <h4>Expense: <span id="expense">0.00</span></h4>
-                </div>
-            </div>
-            <div class="right">
-                <div class="chart-container">
-                    <canvas id="expenseChart"></canvas>
-                </div> 
-            </div>       
-        </div>
-        <div id="budget-alert"></div>
-        <div class="history">
-            <div class="left2">
-                <h3>Add Transaction</h3>
-                <form id="transaction-form">
-                    <input type="text" id="description" placeholder="Enter description" required>
-                    <input type="number" id="amount" placeholder="Enter amount" required>
-                    <input type="date" id="date" placeholder="Enter Date" required>
-                    <select id="type">
-                        <option value="income">Income</option>
-                        <option value="expense">Expense</option>    
-                    </select>
-                    <button type="submit">Add Transaction</button>
-                </form>
-            </div>
-            <div class="right2">
-                <h3 id="Transaction"> Transaction History</h3>
-                <select id="sort">
-                    <option value="date">Sort by Date</option>
-                    <option value="amount">Sort by Amount</option>
-                    <option value="type">Sort by Type</option>
-                </select>
-                <ul id="transaction-list"></ul>    
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    function showPassword() {
+      document.getElementById('login-container').style.display = 'none';
+      document.getElementById('password-container').style.display = 'block';
+    }
+    function showOTP() {
+      document.getElementById('password-container').style.display = 'none';
+      document.getElementById('otp-container').style.display = 'block';
+    }
+    
+    function login() {
+      let username = document.getElementById("login-username").value;
+      let password = document.getElementById("login-password").value;
+      let storedUser = localStorage.getItem("user");
+      let storedPass = localStorage.getItem("pass");
+      
+      if (username === storedUser && password === storedPass) {
+        localStorage.setItem("loggedIn", true);
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("login-error-message").style.display = "block";
+      }
+    }
+    
+    function signup() {
+      let username = document.getElementById("signup-username").value;
+      let password = document.getElementById("signup-password").value;
+      
+      if (username && password) {
+        localStorage.setItem("user", username);
+        localStorage.setItem("pass", password);
+        alert("Signup successful! Please login.");
+        showLogin();
+      } else {
+        document.getElementById("signup-error-message").style.display = "block";
+      }
+    }
+  </script>
 </body>
 </html>
+
 
