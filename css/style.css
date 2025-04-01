@@ -5,58 +5,77 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', system-ui, sans-serif; 
 }
-.navbar{
+
+.navbar {
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #31a4f6;
 }
-.dark{
-  background-color: rgb(30, 30, 34);
-  color: white;
-  transition:33ms;
+
+.dark {
+  background-color: #121212;
+  color: #ffffff;
 }
-.navbar .logo{
+
+.dark .navbar {
+  background-color: #1e1e1e;
+}
+
+.dark .container1 {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.navbar .logo {
   display: flex;
   align-items: center; 
 }
-.navbar .logo img{
+
+.navbar .logo img {
   width: 40px;
   height: 40px;
   margin-right: 10px;
   border-radius: 50%;
 }
-.navbar .nav-links{
+
+.navbar .nav-links {
   list-style: none;
   display: flex;
-  gap:50px;
+  gap: 50px;
 }
+
 .menu-icon {
   display: none;
   font-size: 24px;
   cursor: pointer;
 }
-.navbar .nav-links a:hover{
+
+.navbar .nav-links a:hover {
   color: #31a4f6;
   cursor: pointer;
   transform: translateY(-3px);
-  font-size:x-large;
+  font-size: x-large;
 }
+
 .dark .navbar .nav-links a {
   color: rgba(196, 225, 247, 0.95);
 }
-.navbar .nav-links li{
+
+.navbar .nav-links li {
   display: inline;
   color: #31a4f6;
 }
-.navbar .nav-links a{
+
+.navbar .nav-links a {
   text-decoration: none;
   color: #333;
   font-size: 1.2rem;
   font-weight: 500;
 }
-.dark-mode-btn{
+
+.dark-mode-btn {
   padding: 5px 10px;
   height: 40px;
   border-radius: 50%;
@@ -64,24 +83,29 @@
   margin-left: 2rem;
   margin-right: 2rem; 
 }
-.flag-img{
+
+.flag-img {
   display: flex;
   margin-left: 1.5rem;
 }
-.search-bar{
+
+.search-bar {
   padding: 7px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;  
 }
-.nav-right{
+
+.nav-right {
   display: flex;
   align-items: center;
 }
+
 .container {
   width: 95%;
   height: auto;
   padding: 2rem;
 }
+
 h3 {
   margin-top: 1em;
   color: rgb(5, 173, 203);
@@ -90,10 +114,12 @@ h3 {
   padding: .25rem;
   border-radius: 5px;
 }
-h3:hover{
-  color:rgb(221, 143, 26);
+
+h3:hover {
+  color: rgb(221, 143, 26);
   background: rgba(245, 146, 238, 0.12);
 }
+
 .summary, .history {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -118,7 +144,7 @@ h3:hover{
   background: linear-gradient(145deg, rgba(95, 133, 230, 0.12), rgba(95, 133, 230, 0.12)));
 }
 
-#transaction-form{
+#transaction-form {
   display: grid;
   gap: 1rem;
   padding: 1.5rem;
@@ -135,7 +161,7 @@ input, select, button {
 }
 
 button:hover {
-  background:rgb(66, 121, 157);
+  background: rgb(66, 121, 157);
   transform: translateY(-2px);
 }
 
@@ -145,7 +171,7 @@ button:hover {
   overflow-y: auto;
 }
 
-#transaction-list li {
+#transaction-list li, #budget-items li{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,24 +181,25 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
 h5 {
-  color:rgb(5, 173, 203);
+  color: rgb(5, 173, 203);
   font-style: italic;
   margin-bottom: 2rem;
   font-size: 1.5rem;
 }
 
-.container1{
+.container1 {
   width: 50%;
   height: auto;
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 05px 05px 10px rgba(208, 227, 227, 0.81); 
   text-align: center;
-  margin-left:25%;
+  margin-left: 25%;
 }
 
-.input-field{
+.input-field {
   width: 60%;
   padding: 10px;
   margin: 10px 0;
@@ -189,51 +216,66 @@ h5 {
   cursor: pointer;
 }
 
+.message {
+  color: red;
+  font-weight: bold;
+}
+
+.button-primary {
+  border: 2px solid #e0e0e0;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  padding: 1rem; 
+  border-radius: 5px;
+}
+
+.button-primary:hover {
+  background: rgb(66, 121, 157);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .container {
     margin: 1rem;
     padding: 1rem;
   }
-  
+
   #transaction-form {
     grid-template-columns: 1fr;
   }
+
   .navbar {
     height: auto;
     flex-direction: column;
-
   }
-  
-  
+
   .navbar .nav-links {
     display: flex;
     gap: 2px;
-    font-weight:300;
+    font-weight: 300;
   }
-  
-  .nav-links li a{
-    display:flex;
+
+  .nav-links li a {
+    display: flex;
     justify-content: space-between;
     text-align: center;
-    font-size:.5rem;
+    font-size: .5rem;
   }
-  
-  .container1{
-    width:90%;
+
+  .container1 {
+    width: 90%;
     text-align: center;
     margin-left: 5%;
-    margin-top:2rem;
+    margin-top: 2rem;
   }
 }
-
 
 @media (max-width: 480px) {
   input, select, button {
     font-size: 0.9rem;
   }
-  
+
   #transaction-list li {
-    
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;

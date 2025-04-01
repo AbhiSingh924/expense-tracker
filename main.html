@@ -4,21 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MoneyFlow</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <div class="navbar" style="cursor: pointer;">
             <div class="logo">
-                <img src="../image.png" alt="Expense Tracker Logo" class="logo-img">
+                <img src="assets/image.png" alt="Expense Tracker Logo" class="logo-img">
                 <h4 class="logo-text" >MoneyFlow</h4>
             </div>
             <ul class="nav-links" >
                 <li><a href="#summary">Home</a></li>    
                 <li><a href="#Transaction">Transactions</a></li>
-                <li><a href="/budget.html">Budget</a></li>
+                <li><a href="budget.html">Budget</a></li>
                 <li><a href="#">Export</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="index.html">Logout</a></li>
             </ul>
             <div class="nav-right">
                 <input type="text" placeholder="Search Transactions..." class="search-bar">
@@ -62,6 +62,7 @@
                 <div class="right2">
                     <h3 id="Transaction"> Transaction History</h3>
                     <select id="sort">
+                        <option >-Select-</option>
                         <option value="date">Sort by Date</option>
                         <option value="amount">Sort by Amount</option>
                         <option value="type">Sort by Type</option>
@@ -70,6 +71,6 @@
                 </div>
             </div>
         </div>
-        <script src="script.js"></script>
+<script src="js/script.js"></script>
     </body>
 </html>

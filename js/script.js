@@ -119,7 +119,7 @@ function updateChart() {
 
     const budgetAlertEl = document.getElementById("budget-alert");
 
-    if (income > 0 && expense > income) {
+    if (income >= 0 && expense > income) {
         budgetAlertEl.innerHTML = "⚠️ <b>BUDGET EXCEEDED:</b> Your expenses have crossed your income!";
         budgetAlertEl.style.color = "red";
         budgetAlertEl.style.fontWeight = "bold";
