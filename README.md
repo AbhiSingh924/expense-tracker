@@ -20,40 +20,59 @@ A comprehensive financial management solution with the following capabilities:
 - Visual progress bars for budget utilization
 - Historical spending pattern analysis
 
+### Advanced Reporting
+- Generate detailed financial reports
+- Custom date range filtering
+- Export reports to PDF/CSV formats
+
 ### Data Visualization
 - Interactive Doughnut chart for category-wise distribution
 - Line chart tracking balance history over time
 - Export charts as PNG images
+- Comparative analysis between budget vs actuals
+
+### Data Export
+- Full transaction history export to CSV
+- Scheduled automated backups
+- Cross-browser data portability
 
 ## Technology Stack
 
-| Component        | Technology                 |
-|------------------|----------------------------|
-| Frontend         | HTML5, CSS3, ES6 JavaScript|
-| Data Storage     | Browser localStorage       |
-| Charting         | Chart.js library           |
-| UI Framework     | Custom CSS Grid/Flexbox    |
-| Version Control  | Git + GitHub               |
-
-
+| Component        | Technology                  |
+|------------------|-----------------------------|
+| Frontend         | HTML5, CSS3, ES6 JavaScript |
+| Data Storage     | Browser localStorage        |
+| Charting         | Chart.js library            |
+| Reporting        | PDFMake library             |
+| Data Export      | FileSaver.js                |
+| UI Framework     | Custom CSS Grid/Flexbox     |
+| Version Control  | Git + GitHub                |
 
 ## File Structure
 
 ```
 expense-tracker/
-├── index.html       # Dashboard landing page
-├── main.html        # Transaction management UI
-├── budget.html      # Budget configuration interface
+├── index.html         # Primary application entry point
+├── main/              # Core transaction management
+│   ├── main.html      # Transaction UI
+│   └── script.js      # Transaction logic
+├── budget/            # Budget configuration
+│   ├── budget.html    # Budget interface
+│   └── budget.js      # Budget calculations
+├── report/            # Reporting module
+│   ├── report.html    # Report dashboard
+│   ├── report.js      # Report generation logic
+│   └── report.css     # Print-optimized styles
+├── export/            # Data export features
+│   ├── export.html    # Export interface
+│   ├── export.js      # Export handlers
+│   └── export.css     # Export styling
 ├── css/
-│   ── style.css    # Global styles + responsive layouts
-├── js/
-│   ├── script.js    # Core logic: Transactions, localStorage
-│   ── script2.js   # Chart implementations, budget calculations
-├── assets/          # Static resources
-│   ├── icons/       # SVG icons
-│   ├── screenshots/ # Application previews
-│   ── favicon.ico  
-── README.md        # Project documentation
+│   └── style.css      # Global styles & responsive layouts
+├── assets/            # Static resources
+│   ├── image.png      # Application logo
+│   └── passlogo.png   # Password recovery asset
+└── README.md          # Project documentation
 ```
 
 ## Development Practices
@@ -63,6 +82,3 @@ expense-tracker/
 - Mobile-first responsive design
 - localStorage data validation
 - Error handling for invalid inputs
-
-
-
