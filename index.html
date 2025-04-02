@@ -22,7 +22,7 @@
     <h5>Login to MoneyFlow</h5>
     <input type="text" id="login-username" class="input-field" placeholder="Email/mobile*"></br>
     <input type="password" id="login-password" class="input-field" placeholder="Password*"></br>
-    <button><a href="main.html" style="text-decoration: none;">Login</a></button>
+    <button><a href="./main/main.html" style="text-decoration: none;">Login</a></button>
     <p id="login-error-message" style="color: red; display: none;">Invalid credentials</p>
     <span class="link" onclick="showSignup()">New user? Sign up</span>
     <span class="link" onclick="showPassword()">Forgot Password?</span>
@@ -36,12 +36,12 @@
     <input type="text" id="signup-lastname" class="input-field" placeholder="Last Name*" required> </br>    
     <input type="password" id="signup-password" class="input-field" placeholder="Set new Password*" required>
     <input type="password" id="signup-password" class="input-field" placeholder="Confirm Password*" required></br>
-    <button><a href="main.html" style="text-decoration: none;">Sign Up</a></button>
+    <button><a href="./main/main.html" style="text-decoration: none;">Sign Up</a></button>
     <p id="signup-error-message" style="color: red; display: none;">Signup failed</p>
     <span class="link" onclick="showLogin()">Already have an account? Login</span>
   </div>  
   <div class="container1" id="password-container" style="display:none;">
-    <img src="passlogo.png" alt="profile" width="100px">
+    <img src="./assets/passlogo.png" alt="profile" width="100px">
     <h5>Restore Password</h5>
     <span class="msg">Enter your register Email/Mobile No.</span><br/>
     <input type="text" id="password" size="30" maxlength="60" placeholder="email/mobile no. " style="margin-top: 1em;"><br/>
@@ -49,7 +49,7 @@
   </div>    
   <div class="container1" id="otp-container" style="display:none;">
     
-    <img src="passlogo.png" alt="profile" width="100px">
+    <img src="./assets/passlogo.png" alt="profile" width="100px">
     <h5>Restore your Password</h5>
     <span class="msg">OTP verification</span><br/>
     <input type="text" size="30" maxlength="10" placeholder="Enter OTP " style="margin-top: 1em;"><br/>

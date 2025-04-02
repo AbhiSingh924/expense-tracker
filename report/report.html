@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MoneyFlow/Export</title>
+  <link rel="stylesheet" href="report.css"/>
+</head>
+<body>
+  <div class="navbar" style="cursor: pointer;">
+    <div class="logo">
+      <img src="../assets/image.png" alt="Expense Tracker Logo" class="logo-img">
+      <h4 class="logo-text">MoneyFlow</h4>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="../main/main.html">Home</a></li>
+      <li><a href="#">Transactions</a></li>
+      <li><a href="../budget/budget.html">Budget</a></li>
+      <li><a href="../export/export.html">Export</a></li>
+      <li><a href="../index.html">Logout</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <input type="text" placeholder="Search Transactions..." class="search-bar">
+      <img id="flag" src="" alt="Country Flag" class="flag-img">
+      <button id="theme-toggle" class="dark-mode-btn">🌙</button> 
+    </div>
+  </div>
+
+  <div class="export-container">
+    <div class="export-header">
+      <h1>Monthly Finance Summary</h1>
+      <button id="new-month-btn" class="button-primary">➕ Add New Month</button>
+    </div>
+
+    <div id="month-container" class="month-cards"></div>
+  </div>
+
+  <!-- New Month Modal -->
+  <div class="modal" id="new-month-modal">
+    <div class="modal-content">
+      <h3>Create New Month</h3>
+      <label for="year-select">Year</label>
+      <select id="year-select"></select>
+      <label for="month-select">Month</label>
+      <select id="month-select"></select>
+      <div class="modal-actions">
+        <button id="cancel-month">Cancel</button>
+        <button id="create-month">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transaction Modal -->
+  <div class="modal" id="transaction-modal">
+    <div class="modal-content">
+      <h3>Add Transaction</h3>
+      <input id="t-name" type="text" placeholder="Transaction Name" />
+      <input id="t-amount" type="number" placeholder="Amount" />
+      <input id="t-date" type="date" />
+      <select id="t-category">
+        <option disabled selected>Select Category</option>
+        <option value="Income">Income</option>
+        <option value="Needs">Needs</option>
+        <option value="Wants">Wants</option>
+        <option value="Savings">Savings</option>
+      </select>
+      <div class="modal-actions">
+        <button id="cancel-transaction">Cancel</button>
+        <button id="save-transaction">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="report.js"></script>
+</body>
+</html>

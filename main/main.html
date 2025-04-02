@@ -4,21 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MoneyFlow</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <div class="navbar" style="cursor: pointer;">
             <div class="logo">
-                <img src="assets/image.png" alt="Expense Tracker Logo" class="logo-img">
+                <img src="../assets/image.png" alt="Expense Tracker Logo" class="logo-img">
                 <h4 class="logo-text" >MoneyFlow</h4>
             </div>
             <ul class="nav-links" >
                 <li><a href="#summary">Home</a></li>    
-                <li><a href="#Transaction">Transactions</a></li>
-                <li><a href="budget.html">Budget</a></li>
-                <li><a href="#">Export</a></li>
-                <li><a href="index.html">Logout</a></li>
+                <li><a href="../report/report.html">Transactions</a></li>
+                <li><a href="../budget/budget.html">Budget</a></li>
+                <li><a href="../export/export.html">Export</a></li>
+                <li><a href="../index.html">Logout</a></li>
             </ul>
             <div class="nav-right">
                 <input type="text" placeholder="Search Transactions..." class="search-bar">
@@ -53,8 +53,16 @@
                         <input type="number" id="amount" placeholder="Enter amount" required>
                         <input type="date" id="date" placeholder="Enter Date" required>
                         <select id="type">
+                            <option>-Select-</option>
                             <option value="income">Income</option>
                             <option value="expense">Expense</option>    
+                        </select>
+                        <select id="type">
+                            <option value="description">-Transiction Description-</option>
+                            <option value="income">Income</option>
+                            <option value="needs">Needs</option>
+                            <option value="work">Work</option>
+                            <option value="expense">saving</option>    
                         </select>
                         <button type="submit">Add Transaction</button>
                     </form>
@@ -62,7 +70,7 @@
                 <div class="right2">
                     <h3 id="Transaction"> Transaction History</h3>
                     <select id="sort">
-                        <option >Select-</option>
+                        <option >-Select-</option>
                         <option value="date">Sort by Date</option>
                         <option value="amount">Sort by Amount</option>
                         <option value="type">Sort by Type</option>
@@ -71,6 +79,6 @@
                 </div>
             </div>
         </div>
-<script src="js/script.js"></script>
+<script src="script.js"></script>
     </body>
 </html>
