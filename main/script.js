@@ -34,7 +34,7 @@ function renderTransactions() {
     transactionList.innerHTML = "";
     transactions.forEach((t, index) => {
         const li = document.createElement("li");
-        li.innerHTML = `<span style="color: ${t.type === "income" ? "green" : "red"}">
+        li.innerHTML = `<span style="color: ${t.type === "income" ? "#90ee90" : "#ff6666"}">
                             ${t.description}: ₹${t.amount}
                         </span> 
                         <span style="color:rgba(46, 51, 51, 0.81);">${t.date}</span>
@@ -80,12 +80,12 @@ transactionForm.addEventListener("submit", function (e) {
 // ADDING BAR CHART FOR INCOME VS EXPENSE
 var ctx = document.getElementById("expenseChart").getContext("2d");
 var expenseChart = new Chart(ctx, {
-    type: "bar",
+    type: "pie",
     data: {
         labels: ["Income", "Expense"],
         datasets: [{
             data: [0, 0],
-            backgroundColor: ["green", "red"]
+            backgroundColor: ["#90ee90", "#ff6666"]
         }]
     },
     options: {
@@ -121,22 +121,22 @@ function updateChart() {
 
     if (income >= 0 && expense > income) {
         budgetAlertEl.innerHTML = "⚠️ <b>BUDGET EXCEEDED:</b> Your expenses have crossed your income!";
-        budgetAlertEl.style.color = "red";
+        budgetAlertEl.style.color = "#ff6666";
         budgetAlertEl.style.fontWeight = "bold";
-        budgetAlertEl.style.fontSize = "2rem";
+        budgetAlertEl.style.fontSize = "1.5rem";
     
     }
     else if (income > 0 && expense > income * 0.7) {
         budgetAlertEl.innerHTML = "⚠️ <b>BUDGET EXCEEDED:</b> Your expenses have crossed 70% of your income!";
-        budgetAlertEl.style.color = "red";
+        budgetAlertEl.style.color = "#f99999";
         budgetAlertEl.style.fontWeight = "bold";
-        budgetAlertEl.style.fontSize = "2rem";
+        budgetAlertEl.style.fontSize = "1.5rem";
     }
     else {
         budgetAlertEl.innerHTML = "✅ <b>Budget is under control.</b>";
-        budgetAlertEl.style.color = "green";
+        budgetAlertEl.style.color = "#90ee90";
         budgetAlertEl.style.fontWeight = "bold";
-        budgetAlertEl.style.fontSize = "1.5rem";
+        budgetAlertEl.style.fontSize = "1.2rem";
     }
 
     

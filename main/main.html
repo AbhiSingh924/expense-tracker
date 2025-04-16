@@ -11,74 +11,83 @@
         <div class="navbar" style="cursor: pointer;">
             <div class="logo">
                 <img src="../assets/image.png" alt="Expense Tracker Logo" class="logo-img">
-                <h4 class="logo-text" >MoneyFlow</h4>
+                <h4 class="logo-text">MoneyFlow</h4>
             </div>
-            <ul class="nav-links" >
+            <ul class="nav-links">
                 <li><a href="#summary">Home</a></li>    
                 <li><a href="../report/report.html">Transactions</a></li>
                 <li><a href="../budget/budget.html">Budget</a></li>
-                <!-- <li><a href="../export/export.html">Export</a></li> -->
                 <li><a href="../index.html">Logout</a></li>
             </ul>
             <div class="nav-right">
-                <input type="text" placeholder="Search Transactions..." class="search-bar">
                 <img id="flag" src="" alt="Country Flag" class="flag-img">
                 <button id="theme-toggle" class="dark-mode-btn">🌙</button> 
             </div>
         </div>
         
         <div class="container" id="main-container">
+            <!-- Summary Section -->
             <div class="summary" id="summary">
-                <div class="left">
-                    <div class="balance">
-                        <h4>Balance: ₹<span id="balance">0.00</span></h4>
-                    </div>
-                    <div class="income" style="color: rgb(0,128,0);">
-                        <h4>  Income: <span id="income">0.00</span></h4>
-                    </div>
-                    <div class="expense" style="color: rgb(255,0,0);">
-                        <h4>Expense: <span id="expense">0.00</span></h4>
-                    </div>
+                <div class="balance" style="color:rgb(5, 173, 203);">
+                    <h4>Balance: ₹<span id="balance">0.00</span></h4>
                 </div>
-                <div class="chart-container">
-                    <canvas id="expenseChart"></canvas>
-                </div>     
+                <div class="income" style="color: #90ee90;">
+                    <h4>Income: <span id="income">0.00</span></h4>
+                </div>
+                <div class="expense" style="color: #ff9999;">
+                    <h4>Expense: <span id="expense">0.00</span></h4>
+                </div>
             </div>
+
+            <!-- Budget Alert Section -->
             <div id="budget-alert"></div>
-            <div class="history">
+
+            <!-- Left and Chart Section -->
+            <div class="content">
                 <div class="left2">
                     <h3>Add Transaction</h3>
                     <form id="transaction-form">
                         <input type="text" id="description" placeholder="Enter description" required>
                         <input type="number" id="amount" placeholder="Enter amount" required>
-                        <input type="date" id="date" placeholder="Enter Date" required>
-                        <select id="type">
-                            <option>-Select-</option>
-                            <option value="income">Income</option>
-                            <option value="expense">Expense</option>    
-                        </select>
-                        <select id="type">
-                            <option value="description">-Transiction Description-</option>
-                            <option value="income">Income</option>
-                            <option value="needs">Needs</option>
-                            <option value="work">Work</option>
-                            <option value="expense">saving</option>    
-                        </select>
-                        <button type="submit">Add Transaction</button>
+                        <div class="form-row">
+                            <input type="date" id="date" placeholder="Enter Date" required>
+                            <select id="type">
+                                <option>-Select-</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>    
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <select id="type">
+                                <option value="description">-Transaction Description-</option>
+                                <option value="income">Income</option>
+                                <option value="needs">Needs</option>
+                                <option value="work">Work</option>
+                                <option value="expense">Saving</option>    
+                            </select>
+                            <button type="submit">Add</button>
+                        </div>
                     </form>
                 </div>
-                <div class="right2">
-                    <h3 id="Transaction"> Transaction History</h3>
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Transaction History Section -->
+            <div class="history">
+                  <div class="history-header">
+                    <h3 id="Transaction">Transaction History</h3>
                     <select id="sort">
-                        <option >-Select-</option>
+                        <option>-Select-</option>
                         <option value="date">Sort by Date</option>
                         <option value="amount">Sort by Amount</option>
                         <option value="type">Sort by Type</option>
                     </select>
-                    <ul id="transaction-list"></ul>    
                 </div>
+                <ul id="transaction-list"></ul>    
             </div>
         </div>
-<script src="script.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
