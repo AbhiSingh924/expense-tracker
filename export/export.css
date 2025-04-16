@@ -88,12 +88,6 @@
     margin-left: 1.5rem;
   }
   
-  .search-bar {
-    padding: 7px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;  
-  }
-  
   .nav-right {
     display: flex;
     align-items: center;
@@ -183,4 +177,30 @@
       text-align: center;
       font-size: .5rem;
     }
+}
+
+.download-btn {
+  margin-top: 1.5rem;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #31a4f6;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #2196db;
+}
+
+.dark .download-btn {
+  background-color: #2196db;
+  color: #fff;
+}
+
+.dark .download-btn:hover {
+  background-color: #1b7bbd;
 }

@@ -89,12 +89,6 @@
   margin-left: 1.5rem;
 }
 
-.search-bar {
-  padding: 7px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;  
-}
-
 .nav-right {
   display: flex;
   align-items: center;
@@ -133,23 +127,14 @@ h3:hover {
   border-radius: 8px;
   margin: 1rem 0;
   transition: transform 0.3s ease;
-  background: rgba(95, 133, 230, 0.12);
 }
 
-.income {
-  background: linear-gradient(145deg, rgba(95, 133, 230, 0.12), rgba(95, 133, 230, 0.12));
-}
-
-.expense {
-  background: linear-gradient(145deg, rgba(95, 133, 230, 0.12), rgba(95, 133, 230, 0.12)));
-}
 
 #transaction-form {
   display: grid;
   gap: 1rem;
   padding: 1.5rem;
   border-radius: 10px;
-  background: rgba(95, 133, 230, 0.12);
 }
 
 input, select, button {
@@ -158,6 +143,14 @@ input, select, button {
   border-radius: 5px;
   font-size: 1rem;
   transition: all 0.3s ease;
+}
+button {
+  width:50%;
+  /* border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease; */
+  justify-content : center;
 }
 
 button:hover {

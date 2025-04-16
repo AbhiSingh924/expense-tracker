@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   const monthContainer = document.getElementById("month-container");
 
@@ -8,8 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
     <option value="year">Year</option>
     <option value="income">Income</option>
   `;
-  sortSelect.style.margin = "1rem auto";
+  sortSelect.style.margin = "2rem auto";
   sortSelect.style.display = "block";
+  sortSelect.style.fontSize = "1.2rem"; // Increase font size
+  sortSelect.style.padding = "10px"; // Add padding for larger clickable area
+  sortSelect.style.width = "200px"; // Set a larger width
+  sortSelect.style.borderRadius = "8px"; // Add rounded corners
+  sortSelect.style.border = "1px solid #ccc"; // Add a border for better visibility
   monthContainer.before(sortSelect);
 
   let data = getSyncedData();
