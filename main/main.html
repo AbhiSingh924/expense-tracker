@@ -28,13 +28,13 @@
         <div class="container" id="main-container">
             <!-- Summary Section -->
             <div class="summary" id="summary">
-                <div class="balance" style="color:rgb(5, 173, 203);">
+                <div class="balance" >
                     <h4>Balance: ₹<span id="balance">0.00</span></h4>
                 </div>
-                <div class="income" style="color: #90ee90;">
+                <div class="income" >
                     <h4>Income: <span id="income">0.00</span></h4>
                 </div>
-                <div class="expense" style="color: #ff9999;">
+                <div class="expense" >
                     <h4>Expense: <span id="expense">0.00</span></h4>
                 </div>
             </div>
@@ -47,8 +47,10 @@
                 <div class="left2">
                     <h3>Add Transaction</h3>
                     <form id="transaction-form">
-                        <input type="text" id="description" placeholder="Enter description" required>
-                        <input type="number" id="amount" placeholder="Enter amount" required>
+                        <div class="form-row">
+                            <input type="text" id="description" placeholder="Enter description" required>
+                            <input type="number" id="amount" placeholder="Enter amount" required>
+                        </div>
                         <div class="form-row">
                             <input type="date" id="date" placeholder="Enter Date" required>
                             <select id="type">

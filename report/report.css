@@ -57,7 +57,7 @@
   color: #31a4f6;
   cursor: pointer;
   transform: translateY(-3px);
-  font-size: x-large;
+  /* font-size: x-large; */
 }
 
 .dark .navbar .nav-links a {
