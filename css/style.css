@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color:rgb(5, 173, 203);
+  color: #31a4f6;
 }
 
 .dark {
@@ -102,7 +102,7 @@
 
 h3 {
   margin-top: 1em;
-  color: rgb(5, 173, 203);
+  color: #31a4f6;
   font-size: 1.75em;   
   font-style: italic;
   padding: .25rem;
@@ -199,7 +199,7 @@ button:hover {
 }
 
 h5 {
-  color: rgb(5, 173, 203);
+  color: #31a4f6;
   font-style: italic;
   margin-bottom: 2rem;
   font-size: 1.5rem;
@@ -228,7 +228,7 @@ h5 {
 .link {
   margin-top: 10px;
   display: block;
-  color: #007bff;
+  color: #31a4f6;
   cursor: pointer;
 }
 

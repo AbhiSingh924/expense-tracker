@@ -1,0 +1,5 @@
+modity saving such that it should should show balance of that month in saving 
+sink expance of budget to that of main transiction 
+make color combination monotonus 
+work on refrace rate as to load new page it is taking time 
+complete authentication process
